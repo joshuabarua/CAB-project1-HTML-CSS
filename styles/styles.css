@@ -91,7 +91,7 @@ a:focus::after {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-image: url("/Sprint1/assets/imgs/pexels-cottonbro-studio-6701735.jpg");
+	background-image: url("../assets/imgs/pexels-cottonbro-studio-6701735.jpg");
 	z-index: 5;
 	background-position: center;
 
