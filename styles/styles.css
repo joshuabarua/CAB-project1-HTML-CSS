@@ -1,0 +1,538 @@
+/** variable for colors **/
+:root {
+	--main-color: #f4d8cd;
+	--secondary-color: #1190a0;
+	--accent-color: #775144;
+}
+
+body {
+	margin: auto;
+	background-color: var(--main-color);
+	font-family: Arial, Helvetica, sans-serif;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+.header {
+	position: fixed;
+	padding: 30px;
+	height: 20px;
+	width: 100vw;
+	background-color: var(--main-color);
+	opacity: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 2;
+}
+
+.header h1 {
+	font-size: 28px;
+	letter-spacing: 5px;
+	padding-left: 15px;
+	font-weight: 200;
+	color: #1190a0;
+}
+
+.page-title {
+	display: flex;
+	align-items: center;
+}
+
+/** remove underline, transform text, spacing, horizontal display **/
+.navbar a,
+.navbar a:visited {
+	position: relative;
+	padding: 0.2em 0;
+	text-decoration: none;
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+/** pseudo element on anchor, set accent color as invisible to transition opacity, sets timing **/
+
+.navbar a::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: var(--accent-color);
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+
+/** This creates the transition on hover via pseudo element, transform makes the element grow **/
+
+.navbar a:hover::after,
+a:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
+}
+
+.nav-items li {
+	list-style-type: none;
+	display: inline;
+	padding-left: 30px;
+	line-height: 40px;
+}
+
+/** TODO: Use an "active" class to define which link the page is on and underline it with secondary color when on that page **/
+
+/*** INDEX Page ***/
+.hero-content {
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: url("/Sprint1/assets/imgs/pexels-cottonbro-studio-6701735.jpg");
+	z-index: 5;
+	background-position: center;
+
+	/**  Adjust image size to fit better **/
+	background-size: auto 1000px;
+	background-repeat: no-repeat;
+
+	/** Parallax Magic **/
+	background-attachment: fixed;
+
+	/** Variables for radial gradiant and borders **/
+	--circle-radius: 400px;
+	--border-width: 700px;
+	--mask: radial-gradient(
+			circle farthest-side at center center,
+			#ffffff var(--circle-radius),
+			transparent calc(var(--circle-radius) + 2px)
+				calc(var(--circle-radius) + 2px + var(--border-width)),
+			#ffffff calc(var(--circle-radius) + 2px + var(--border-width) + 2px) 100%
+		)
+		50% 50%/100% 100% no-repeat;
+
+	/** Overlay for circular shape **/
+	mask: var(--mask);
+	-webkit-mask: var(--mask);
+}
+
+.hero-content h2 {
+	font-weight: 200;
+	letter-spacing: 3px;
+
+	color: #f4d8cd;
+	z-index: 3;
+}
+
+.hero-content p {
+	font-size: 18px;
+}
+/** key frames for button animation loop **/
+@keyframes changeAxis {
+	0% {
+		transform: translateY(0px);
+	}
+	25% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.hero-btn {
+	color: var(--main-color);
+	background-color: var(--secondary-color);
+	font-size: 16px;
+	width: 125px;
+	height: 50px;
+	border-radius: 15px;
+	box-shadow: none;
+	border-width: 0px;
+	z-index: 1;
+	text-decoration: none;
+	letter-spacing: 1px;
+	animation: changeAxis 4s ease-in-out infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.hero-btn a {
+	color: var(--main-color);
+	text-decoration: none;
+}
+
+.hero-btn:hover {
+	background-color: var(--main-color);
+	color: var(--secondary-color);
+}
+
+.hero-btn:hover a {
+	color: var(--secondary-color);
+}
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 34vw);
+	grid-template-rows: 100vh 50vh;
+}
+
+.grid-item-one {
+	grid-area: 1 / 1/ 1/ 2;
+	background-color: var(--main-color);
+}
+
+.grid-item-two {
+	grid-area: 1/ 2/ 1/ 4;
+	background-color: var(--secondary-color);
+}
+
+.grid-item-three {
+	grid-area: 2 / 1/ 2/ 3;
+	background-color: var(--secondary-color);
+}
+
+.grid-item-four {
+	grid-area: 2/3/2/4;
+	background-color: var(--main-color);
+}
+
+#img-1 img {
+	overflow: hidden;
+	height: 100vh;
+}
+
+#text-1 {
+	background-color: var(--secondary-color);
+	padding: 80px 80px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+}
+#text-1 p {
+	font-size: 18px;
+	font-size: 0.9vw;
+	letter-spacing: 2px;
+	line-height: 25px;
+	color: var(--main-color);
+	text-align: center;
+	word-wrap: break-word;
+	padding-bottom: 50px;
+}
+
+#text-2 {
+	background-color: var(--main-color);
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0px 50px;
+	align-items: center;
+	flex-direction: column;
+}
+
+#text-2 p {
+	font-size: 18px;
+	font-size: 1.2vw;
+	letter-spacing: 2px;
+	line-height: 30px;
+	color: var(--secondary-color);
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.form-btn:hover {
+	cursor: pointer;
+}
+
+#index-blog-btn {
+	color: var(--secondary-color);
+	background-color: var(--main-color);
+	font-size: 16px;
+	width: 125px;
+	height: 50px;
+	border-radius: 15px;
+	box-shadow: none;
+	border-width: 0px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#index-blog-btn a {
+	color: var(--secondary-color);
+	text-decoration: none;
+}
+
+#index-blog-btn:hover {
+	border-width: 2px solid;
+	border-color: var(--main-color);
+	box-shadow: none;
+	transform: scale(1.1);
+	transition: ease-in-out 500ms;
+}
+
+#img-2 {
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	align-items: center; /* vertical */
+	justify-content: center; /* horizontal */
+}
+
+#img-2 img {
+	width: 800px;
+}
+
+#index-contact-btn {
+	color: var(--main-color);
+	background-color: var(--secondary-color);
+	width: 150px;
+	height: 50px;
+	border-radius: 15px;
+	font-size: 16px;
+	box-shadow: none;
+	border-width: 0px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#index-contact-btn a {
+	color: var(--main-color);
+	text-decoration: none;
+}
+
+#index-contact-btn:hover {
+	border-width: 2px solid;
+	border-color: var(--secondary-color);
+	box-shadow: none;
+	transform: scale(1.1);
+	transition: ease-in-out 500ms;
+}
+
+/*** END INDEX PAGE ***/
+
+/*** START BOULDERING PAGE ***/
+.bouldering-content {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.bouldering-content h3 {
+	color: var(--secondary-color);
+}
+
+.bouldering-locations-table {
+	width: 70vw;
+	padding: 50px;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	border: 2px solid var(--secondary-color);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	table-layout: auto;
+}
+
+table thead tr {
+	background-color: var(--secondary-color);
+	color: #ffffff;
+	text-align: left;
+}
+
+th,
+td {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: 1px solid var(--accent-color);
+	background-color: #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+	border-bottom: 2px solid var(--secondary-color);
+}
+
+tr {
+	height: 30px;
+}
+
+.table-link,
+.table-link:visited {
+	text-decoration: none;
+	color: var(--secondary-color);
+}
+
+.table-link:hover {
+	color: var(--accent-color);
+}
+
+/*** END BOULDERING LOCATIONS PAGE ***/
+
+/*** START BLOG PAGE ***/
+
+#blog-content-1 {
+	padding-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 200px;
+	font-size: 18px;
+}
+
+#blog-img-1 {
+	width: 80vw;
+	border-radius: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#blog-content-1 p {
+	padding: 10px 100px 10px 100px;
+	text-align: justify;
+	font-size: 1.3rem;
+	line-height: 30px;
+	letter-spacing: 1px;
+	color: var(--secondary-color);
+}
+
+#blog-content-1 h1,
+#blog-content-1 h3,
+#blog-content-1 a,
+#blog-content-1 a:visited {
+	font-size: 1.1em;
+	color: var(--secondary-color);
+	text-decoration: none;
+	padding: 10px 50px 10px 50px;
+}
+
+#blog-content-1 a:hover {
+	font-size: 1.2em;
+	transition: ease-in-out 200ms;
+	color: var(--accent-color);
+	text-align: center;
+}
+
+/*** END BLOG PAGE ***/
+
+/** CONTACT PAGE ***/
+
+#contact-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+#contact-container h3 {
+	padding-top: 150px;
+	color: var(--secondary-color);
+}
+
+.contact-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	gap: 30px;
+	width: 100vw;
+	height: 80vh;
+}
+
+.contact-section form {
+	width: 80vw;
+	max-width: 900px;
+	height: 60vh;
+	padding: 20px;
+	gap: 10px;
+	background-color: #f3f3f3;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: space-around;
+}
+
+.contact-form input[type="text"],
+[type="email"],
+select,
+textarea,
+#name input,
+#email input {
+	background: none;
+	border: none;
+	border-bottom: solid 1px var(--accent-color);
+	color: var(--accent-color);
+	font-size: 1em;
+	font-weight: 300;
+	letter-spacing: 2px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+	text-transform: uppercase;
+	width: 100%;
+	box-sizing: border-box;
+	transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+[type="email"]:focus,
+textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+#experience {
+	display: flex;
+	flex-direction: column;
+}
+
+#experience div {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	gap: 15px;
+}
+
+#experience label {
+	margin-right: 70px;
+}
+
+#checkboxes div label {
+	gap: 15px;
+}
+
+/*** END CONTACT PAGE ***/
+
+/*** CONFIRMATION PAGE ***/
+#confirmation-container {
+	height: 100vh;
+	display: flex;
+	color: var(--secondary-color);
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/*** END CONFIRMATION PAGE ***/

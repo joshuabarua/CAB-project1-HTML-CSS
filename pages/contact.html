@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../styles/styles.css" type="text/css" />
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<title>Contact</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="page-title">
+				<lottie-player
+					src="https://assets4.lottiefiles.com/packages/lf20_uR8C8A.json"
+					background="transparent"
+					speed="0.1"
+					style="width: 30px; height: 30px"
+					autoplay
+				></lottie-player>
+				<h1
+					style="
+						font-size: 28px;
+						letter-spacing: 5px;
+						padding-left: 15px;
+						font-weight: 200;
+						color: #1190a0;
+					"
+				>
+					Boulder Berlin
+				</h1>
+			</div>
+
+			<nav class="navbar">
+				<div class="nav-items">
+					<ul>
+						<li><a href="./index.html" class="active"> Home</a></li>
+						<li><a href="./bouldering.html">Bouldering</a></li>
+						<li><a href="./blog.html">Blog</a></li>
+						<li><a href="./contact.html">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div id="contact-container">
+			<h3>Contact Us</h3>
+			<section class="contact-section">
+				<form action="./confirmation.html" id="contact-form">
+					<div id="name">
+						<label for="name"></label>
+						<input type="text" name="name" required placeholder="My Name Is... " />
+					</div>
+					<div id="email">
+						<label for="email"></label>
+						<input type="text" name="email" required placeholder="My email is..." />
+					</div>
+					<div>
+						<label for="contact reason">Contact Reason</label>
+						<select
+							placeholder="Contact Reason"
+							id="contact reason"
+							name="contact reason"
+						>
+							<option value="Info">Information</option>
+							<option value="Help">Help</option>
+							<option value="Booking">Book One-on-One Coaching</option>
+							<option value="Other">Other</option>
+						</select>
+					</div>
+					<label>Climbing Experience</label>
+					<div id="experience">
+						<div>
+							<input
+								type="radio"
+								id="1"
+								value="+/- 1"
+								name="climbingOptions"
+								checked
+							/>
+							<label for="1">+/- One Year</label>
+							<input type="radio" id="3" value="3" name="climbingOptions" />
+							<label for="3">Three Years</label>
+							<input type="radio" id="5" value="5+" name="climbingOptions" />
+							<label for="5"> More than Five Years</label>
+						</div>
+					</div>
+					<div id="message">
+						<label for="message"></label>
+						<textarea
+							placeholder="Sends us a message"
+							name="message"
+							maxlength="2000"
+							rows="4"
+						></textarea>
+					</div>
+					<div id="checkboxes">
+						<div>
+							<input value="newsletter" type="checkbox" name="newsletter" />
+							<label for="newsletter">
+								Check here if you do not want to receive our newsletter
+							</label>
+						</div>
+						<div>
+							<input required id="tox" value="toc" name="toc" type="checkbox" />
+							<label for="toc"> Agree to our terms and conditions </label>
+						</div>
+					</div>
+					<input type="submit" value="Submit" />
+				</form>
+
+				<div>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.414670919078!2d13.437943977316937!3d52.544023734449915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84de3f0b62bb1%3A0xf18fcfe0b2f08e02!2sErich-Weinert-Stra%C3%9Fe%20145%2C%2010409%20Berlin!5e0!3m2!1sen!2sde!4v1685106165929!5m2!1sen!2sde"
+						width="550"
+						height="400"
+						style="border: 0"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
