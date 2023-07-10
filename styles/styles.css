@@ -412,9 +412,9 @@ tr {
 #blog-content-1 p {
 	padding: 10px 100px 10px 100px;
 	text-align: justify;
-	font-size: 1.3rem;
 	line-height: 30px;
 	letter-spacing: 1px;
+	font-size: max(1.8vw, 12px);
 	color: var(--secondary-color);
 }
 
